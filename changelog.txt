@@ -260,7 +260,306 @@ Bug Fixes:
 - Fixed /team kick (#69, #67)
 - Fixed problem /team create causing a cost to be invoked (#72)
 
+3.1.21: 
+Features: 
+- Added world guard flag 'teampvp' which can be used to toggle if players can pvp members of their own team (#77)
+
+Improvements: 
+- Team invites now expire after a configurable period (#81)
+
+Bug Fixes: 
+- Fixed a bug with causing team warps to break (#83)
+- Fixed bug causing team levelup to take money not score (#84)
+- Fixed a bug causing console spam when betterteams is initally installed (#79)
+- Fixed a bug causing errors if a plyaer is not in a team with /teama score (#85) 
+- Lowered the chat priority to help support PremiumChat (#75) 
+- Fixed a problem with tags overwriting team colors (#81) 
+
+3.1.22:
+Bug Fixes: 
+- Fixed problem with bows included in 2.1.21 (#87)
+
+3.1.23: 
+Features: 
+- Added support for UltimateClaims (#63)
+- Individual commands can be toggled in a yaml file instead of through permissions (#92)
+- The required rank within a team can be changed for each individual command (#92)
+
+Improvements: 
+- Added two new placeholders
+	- %betterteams_tag% - For the team tag 
+	- %betterteams_displayname% - For the display name of the team (#99)
+- Added the option to prefix chat with team tag (#99)
+- Added a maxMove option to the config for teleport warmup (#97)
+- Added language tracking to bstats (#106)
+- Commands can be run when a team levels up (#91)
+- Added RankupTeamEvent and DisbandTeamEvent to the API
+
+Bug Fixes:
+- Fixed problem causing a space to occur at the end of the money and name placeholder (#94)
+- Fixed ClassCastException with pots (#98)
+- Fixed bug causing invite links to not expire correctly (#93)
+- Fixed bug causing ally limits to be ignored (#100)
+
+3.1.24: 
+Bug Fixes:
+- Fixed a problem with /team top (#103)
+
+3.1.25: 
+Bug Fixes:
+- Fixed prefixSyntax message having different coloured brackets (#115)
+- Fixed bug causing essentialsX /back to not work (#109)
+- Fixed bug with /team title when the player is not recognised (#112)
+
+3.1.26:
+Improvements: 
+- Added placeholder for the number of online players on your team (online) (#110) 
+
+Bug Fixes: 
+- Fixed problem with rank permissions
+
+
+4.0: 
+Features: 
+- Updated to 1.17
+- Included a new saving system (#134) (#163)
+  - this saving system will massively improve performance on your server
+- Added support for Traditional Chinese 
+- Added the ability to set a max balance a team bank can have per team level (#151)
+- Added the option for all teams to require a tag (#114)
+
+Improvements: 
+- Config updating is now completely automated
+- Missing translations will be saved to a file to try and encourage community translations
+- Teams can no longer spam ally requests (#148)
+- Updated polish language file to contain more translations
+- Added a way to remove a title with /team title (#127)
+- If chest commands are disabled checks on hoppers are also disabled (#162)
+- Added clarification to some config.yml comments (#141)
+
+Bug Fixes:
+- Fixed permission issue with /team echest (#142)
+- Fixed error with command /team rank (#147)
+- Fixed endCommands in /team rankup not working as expected (#152)
+- Fixed bug meaning there was not a space at the start of a suffix (#158)
+- Fixed error tree being displayed when update checker fails (#164)
+- Fixed bug which caused an internal error to be thrown when help messages are displayed
+- Fixed slight problem with help prompt for /team create (#114)
+
+Development changes: 
+- Reworked Team class to avoid code reuse
+- Removed support for the depreciated event listener BelowNameChangeListener, Use spigot event observer pattern instead (#131)
+- Removed hardcoding for config updating
+
+4.0.1:
+
+Bug fixes: 
+- fixed bug causing teams to load details incorrectly when a color is not set (#175) (#174)
+
+4.0.2: 
+Features: 
+- Added translations for Catlan (#186)
+
+Bug Fixes: 
+- Fixed bug causing betterteams to not start if there is problems with teamStorage (#184)
+- Fixed bug causing money to be taken from player balance even if their team has a max bank (#180)
+- Fixed bug causing echest changes to not save (#181) 
+- Fixed bug causing teams to disband incorrectly (#178 #190 #182 #187 #176 #177)
+- Fixed bug causing /teama reload to crash the plugin (#189)
+- Fixed bug with team names with the symbol `:` in (#185)
+
+4.0.3:
+
+Bug Fixes: 
+- Fixed bug causing the config to not reload with /teama reload (#202)
+- Fixed bug causing teams to break when they change their name (#204 #199 #193)
+- Fixed bug causing teams to be unloaded while players are still online (#205)
+
+Development Changes: 
+- Replaced the selection sign with an escape code (#196)
+
+4.0.4: 
+
+Bug Fixes: 
+- Removed Team echest duplication bug (#207 #204)
+
+4.0.5:
+
+Features: 
+- Added a description to /team rank (#215)
+
+Improvements: 
+- Added worldgaurd version checking (#173)
+- Stores individual team preference to /team pvp across reloads (#203)
+
+Bug Fixes: 
+- Fixed bug with /team ban <player> for offline players (#217)
+- Fixed bug with worldguard and /teama reload (#173)
+
+4.1.0: 
+
+Features: 
+- Added Mexican Spanish translations (es_mx) (#222)
+- Added the ability to limit the number of admins and owners per team (#156)
+- Added the option to call commands when a player is promoted / demoted (#155) 
+
+Improvements: 
+- Fixed a typo in messages.yml
+
+Bug Fixes:
+
+- Fixed a bug causing /team title to not work (#221)
+
+4.1.1: 
+
+Features: 
+- Added 8 new placeholders (https://github.com/booksaw/BetterTeams/wiki/PlaceholderAPI) (#227)
+- Added an option to make teamLimit permisison based
+
+Improvements: 
+- Added some missing Mexican Spanish translations (#229)
+- Added a minScore option to the config (#231)
+
+Bug Fixes: 
+- Fixed bug with OfflinePlayer name being null (#230)
+- Fixed bug which caused potions to not damage players when they should (#226)
+- Fixed bug causing placeholder.name to not allow spaces
+- Fixed bug causing team names with different capitlisation to be created even if they are the same name 
+- Fixed bug causing teams to disband incorrectly
+
+4.1.2: 
+
+Bug Fixes:
+- Fixed bug causing teamLimit to be loaded incorrectly
+
+4.1.3: 
+
+Bug Fixes: 
+- Removed unneded debug outputs (checking for <team> with the result true/false)
+
+4.1.4: 
+
+IMPORTANT NOTE: After updating set `rebuildLookups` to true in config.yml and fully restart your server.
+This is due a couple of bugs causing desynchronization between the lookup tables and the stored values.
+
+Bug Fixes:
+- Fixed chest claims so it is functional (#236)
+- Fixed error message with holograms (#239)
+
+4.2.0
+Features: 
+- Added placeholders `%betterteams_members_<team>%` and `%betterteams_members_<team>_online%` (#249)
+- Added German support (#256)
+Bug Fixes:
+- Fixed contradictory comments (#253)
+
+4.2.1:
+
+This update comes with the help of srnyx (https://github.com/srnyx) and bobby29831 (https://github.com/bobby29831)
+
+Features:
+- Added /teama teleport <team> [x] [y] [z] [pitch] [yaw] to teleport a team to the specified location (#242)
+
+Improvements: 
+- Added toggle for the update checker (#260)
+
+Bug Fixes:
+- Improved comments in the config (265)
+
+4.3.0:
+
+Features: 
+- Added SQL support for storage (#255)
+
+Improvements
+- Added a teleport to player option in /teama teleport (#269)
+- Improved the output of /teama version to include more information (#296)
+- Added placeholder %betterteams_inteam% to identify if a player is in a team (#290) 
+- Added consistency on prefixing ally chat and team chat (#268)
+- Added some missing Traditional Chinese messages (credit: 花圃中的人偶)
+
+Bug Fixes: 
+- Fixed bug with players getting kicked out of teams when running /teama create (#292)
+- Fixed case sensitivity issues with player names (#288)
+- Fixed bug causing NoSuchMethod error with "@" in commands (#287)
+- Fixed bug causing rebuildLookups to not work as expected (#286)
+- Fixed bug and documentation with autoPurge (#285)
+- Fixed typo in Polish Translations (credit: Duplon)
+- Fixed typo in config.yml (credit: SecretAgent002)
+- Fixed bug causing Worldgaurd not to enable correctly (#273)
+- Fixed bug causing scoreboard teams to not be deleted properly (#289 #274)
+
+4.3.1: 
+Bug Fixes:
+- Removed unwanted debug output
 TODO (any TODO which is not specifically code), mainly used for reminders to update documentation
+
+4.3.2:
+
+Improvements:
+- Added placeholder %betterteams_title% (#300)
+- Added pie chart to bstats to check storage type (#297)
+
+Bug Fixes: 
+- Fixed bug with players leaving the game (#303)
+
+4.3.3:
+
+Bug Fixes: 
+- Fixed bug with SQL (#309)
+- Fixed bug with ally requests not being removed (#312)
+
+4.3.4:
+	
+Bug Fixes: 
+- Fixed bug causing offline players to cause the server to lag (#321)
+- Fixed bug when there are no teams made (#318)
+
+4.3.5: 
+
+Bug Fixes: 
+- Fixed bug where some messages would display with "true" before them
+
+4.3.6: 
+
+Bug Fixes: 
+- Fixed internal error when viewing ally requests from teams that were disbanded (#326)
+- Fixed bug with /teama reload (#328) 
+- Fixed 404 links within the wiki (#324)
+
+4.3.7: 
+
+Features: 
+- Added Spanish translations (es) - Credit Santos (discord)
+
+Improvements:
+- Added some missing Mexican Spanish translations - Credit Mayansito (discord)
+
+Bug Fixes:
+- Fixed /team disband bug - Credit Shorxy (discord) (#330)
+
+4.4.0: 
+
+Features: 
+- Added Lithuanian translations (#335) - Credit Fragas (discord)
+
+Bug Fixes: 
+- Performance improvements on when closing inventory (#345) - Credit PhoenixZTT (discord)
+- Fixed bug with invite message on polish translations (you will need to reset your pl.yml file for this to take effect) (#341)
+
+4.4.1: 
+
+Features:
+- Added 4 new placeholders for online and offline member lists (#346)
+- Added permission node `betterteams.chest.bypass` to bypass chest claims (#313)
+
+Improvements: 
+- /team warp <team> now shows all warps created by that team (#351)
+- Added a title message when a player is kicked from the team (#210)
+
+Bug Fixes:
+- Fixed bug where `enforceTag` does not work as expected (#350) (#348)
+- Fixed bugs causing errors on empty YAML files
 
 Headings: 
 Features: 
