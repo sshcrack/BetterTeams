@@ -1,17 +1,19 @@
 package com.booksaw.betterTeams.commands.team;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map.Entry;
-import java.util.UUID;
-
-import org.bukkit.command.CommandSender;
-
 import com.booksaw.betterTeams.CommandResponse;
 import com.booksaw.betterTeams.PlayerRank;
 import com.booksaw.betterTeams.Team;
 import com.booksaw.betterTeams.TeamPlayer;
 import com.booksaw.betterTeams.commands.presets.TeamSubCommand;
+import com.gmail.filoghost.holographicdisplays.api.line.TextLine;
+import org.bukkit.Location;
+import org.bukkit.Material;
+import org.bukkit.command.CommandSender;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map.Entry;
+import java.util.UUID;
 
 /**
  * This class handles the /team disband command
@@ -44,8 +46,24 @@ public class DisbandCommand extends TeamSubCommand {
 		}
 
 		if (found != null) {
+			Location resourceLoc = team.getResourceLoc();
+			TextLine line = team.getTimeText();
+			if(line != null) line.getParent().delete();
+
+			TextLine upgrade = team.getUpgradeText();
+			if(upgrade != null) upgrade.getParent().delete();
+
+
+			if(resourceLoc != null)
+				resourceLoc.getBlock().setType(Material.AIR);
+
+			team.setTimeText(null);
+			team.setUpgradeText(null);
+			team.setResourceLoc(null);
+
 			team.disband();
 			confirmation.remove(found);
+
 			return new CommandResponse(true, "disband.success");
 		}
 

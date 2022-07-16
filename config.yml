@@ -215,6 +215,27 @@ command:
    teama: 
    - teama
 
+
+#_____________________________________________________________
+# --------------------- Chunk Claiming------------------------
+#_____________________________________________________________
+
+#If the resource chest should spawn particles
+spawnParticles: true
+
+#How often the timer should be updated in ticks (20 ticks = 1 second)
+updateTimerTick: 20
+
+#How often particles should be spawned in ticks
+particleSpawnTick: 5
+
+#How much time should be added for 1 redstone in seconds
+addTime: 60
+
+#_____________________________________________________________
+#_______________________LEVELS________________________________
+#_____________________________________________________________
+
 levels:
    l1: 
       # This is used set a maximum size for a team.

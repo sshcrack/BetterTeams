@@ -1,17 +1,5 @@
 package com.booksaw.betterTeams.commands;
 
-import java.io.File;
-import java.io.IOException;
-import java.text.NumberFormat;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map.Entry;
-import java.util.logging.Level;
-
-import org.bukkit.Bukkit;
-import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
-
 import com.booksaw.betterTeams.CommandResponse;
 import com.booksaw.betterTeams.cooldown.CommandCooldown;
 import com.booksaw.betterTeams.cooldown.CooldownManager;
@@ -19,6 +7,17 @@ import com.booksaw.betterTeams.cost.CommandCost;
 import com.booksaw.betterTeams.cost.CostManager;
 import com.booksaw.betterTeams.message.MessageManager;
 import com.booksaw.betterTeams.message.ReferencedFormatMessage;
+import org.bukkit.Bukkit;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+
+import java.io.File;
+import java.io.IOException;
+import java.text.NumberFormat;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map.Entry;
+import java.util.logging.Level;
 
 /**
  * This is used for any parent commands across the system
@@ -207,7 +206,7 @@ public class ParentCommand extends SubCommand {
 		if (args.length <= 1 || args[0].equals("")) {
 			for (Entry<String, SubCommand> subCommand : subCommands.entrySet()) {
 				if ((args.length == 0 || subCommand.getKey().startsWith(args[0]))
-						&& sender.hasPermission("betterTeams." + subCommand.getValue().getNode()))
+						&& (sender.hasPermission("betterTeams." + subCommand.getValue().getNode())  || subCommand.getValue().getClass() == ParentCommand.class))
 					options.add(subCommand.getKey());
 			}
 			return;

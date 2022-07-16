@@ -186,16 +186,26 @@ chat.syntax: '&6&b[Team]&f%s: %s'
 # for /team allychat
 teleport.fail: '&4The teleportation failed'
 teleport.wait: '&6Wait &b%s &6seconds'
-chest.claim.noChest: '&4You are not standing on a chest'
-chest.claim.limit: '&4Your team has claimed the maximum number of chests'
 # for /team neutral
-chest.claim.claimed: '&4That chest has already been claimed'
-chest.claim.success: '&6You have claimed that chest'
-chest.remove.noChest: '&4You are not standing on a chest'
-chest.remove.notClaimed: '&4Your team has not claimed that chest'
-chest.remove.success: '&4Your team no longer has a claim to that chest'
-chest.all.success: '&6Unclaimed all chests'
-chest.claimed: '&4That chest is claimed by &a%s'
+chunks.claim.claimed: '&cThat chunk has already been claimed'
+chunks.claim.success: '&6You have claimed that chunk'
+chunks.claim.limitReached: '&cYour team has reached the limit of claimed chunks'
+
+chunks.remove.notClaimed: '&cYour team has not claimed that chunk'
+chunks.remove.confirm: '&6Do you want to unclaim this chunk? This will delete your resource chest but will keep your upgrades.'
+chunks.remove.success: '&6Your team no longer has a claimed the chunk'
+
+chunks.all.success: '&6Unclaimed all chunks'
+chunks.all.confirm: '&6Do you want to unclaim all chunks? This will delete the resource chest but will keep your upgrades.'
+
+chunks.claimed: '&cThis chunk is claimed by &a%s'
+
+chunks.view.toggled: '&6Toggled view mode!'
+
+chunks.resources.nochest: '&cMake sure you are standing in the middle of a chest!'
+chunks.resources.nomaterials: '&cInvalid Materials. Make sure there are at least 4 obsidian, 4 diamonds and 1 ender eye in the chest!'
+chunks.resources.notclaimed: '&cMake sure the chunk the chest is in is claimed by your team!'
+chunks.resources.success: '&6Resource chest created!'
 
 echest.echest: 'Enderchest'
 

@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="BetterTeams-Sawervi-Edition:jar">
+    <output-path>$PROJECT_DIR$/../../Minecraft Server/vanillacord/plugins</output-path>
+    <root id="archive" name="BetterTeams.jar">
+      <element id="module-output" name="BetterTeams" />
+      <element id="dir-copy" path="$PROJECT_DIR$" />
+    </root>
+  </artifact>
+</component>
